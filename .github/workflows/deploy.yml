@@ -2,7 +2,7 @@ name: Deploy Vite Site
 
 on:
   push:
-    branches: [ master ]   
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
@@ -27,6 +27,7 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages       # branch to deploy to
-          folder: dist           # folder to deploy
+          branch: gh-pages      # branch to deploy to
+          folder: dist          # folder to deploy
           token: ${{ secrets.GITHUB_TOKEN }}
+          force: true           # force push in case branch doesn't exist
